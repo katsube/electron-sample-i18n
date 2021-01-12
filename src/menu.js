@@ -57,7 +57,7 @@ const setTemplate = (lang='ja') => {
           ] : [
             {role:'delete',    label:_.t('DELETE')},
             {type:'separator'},
-            {role:'selectAll', label:_t('SELECTALL')}
+            {role:'selectAll', label:_.t('SELECTALL')}
           ])
        ]
     },
