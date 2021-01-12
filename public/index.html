@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+  <title>Electron Smaple - i18n</title>
+  <style>
+    body{ background-color:white; }
+  </style>
+</head>
+<body>
+
+<h1></h1>
+
+<form>
+  <button type="button" id="btn-ja" data-lang="ja"></button>
+  <button type="button" id="btn-en" data-lang="en"></button>
+</form>
+
+<script>
+  const {ipcRenderer} = require('electron');
+  const i18n = require('../src/i18n');
+
+  (async ()=>{
+    const locale = await ipcRenderer.invoke('getConfig', 'locale')
+    const _ = new i18n(locale);
+    document.querySelector("h1").textContent = _.t('TITLE')
+    document.querySelector("#btn-ja").textContent = _.t('BUTTON-JA')
+    document.querySelector("#btn-en").textContent = _.t('BUTTON-EN')
+  })()
+
+  document.querySelectorAll("button").forEach( (elem) =>{
+    elem.addEventListener("click", ()=>{
+      const lang = elem.getAttribute("data-lang");
+      ipcRenderer.invoke('setLocale', lang)
+    })
+  })
+</script>
+</body>
+</html>

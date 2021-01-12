@@ -1,0 +1,48 @@
+{
+  "name": "electron-sample-i18n",
+  "version": "1.0.0",
+  "description": "electron sample - i18n",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build-mac": "electron-builder --mac --x64",
+    "build-win": "electron-builder --win --x64"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katsube/electron-sample-i18n.git"
+  },
+  "author": "M.Katsube",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/katsube/electron-sample-i18n/issues"
+  },
+  "homepage": "https://github.com/katsube/electron-sample-i18n#readme",
+  "devDependencies": {
+    "electron": "^11.1.1",
+    "electron-builder": "^22.9.1"
+  },
+  "build": {
+    "appId": "net.makitokatsube.app.sample.i18n",
+    "files": [
+      "package.json",
+      "public/",
+      "src/",
+      "index.js"
+    ],
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "dependencies": {
+    "electron-store": "^6.0.1"
+  }
+}

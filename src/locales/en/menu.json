@@ -1,0 +1,42 @@
+{
+  "ABOUT": "About {{name}}",
+  "SERVICE": "Services",
+  "HIDE": "Hide {{name}}",
+  "HIDEOTHERS": "Hide Others",
+  "UNHIDE": "Show All",
+  "QUIT-MAC": "Quit {{name}}",
+
+  "FILE": "File",
+  "CLOSE": "Close",
+  "QUIT": "Quit",
+
+  "EDIT": "Edit",
+  "UNDO": "Undo",
+  "REDO": "Redo",
+  "CUT": "Cut",
+  "COPY": "Copy",
+  "PASTE": "Paste",
+  "PASTEANDMATCHSTYLE": "Paste and Match Style",
+  "DELETE": "Delete",
+  "SELECTALL": "Select All",
+  "SPEECH": "Speech",
+  "STARTSPEAKING": "Start Speaking",
+  "STOPSPEAKING": "Stop Speaking",
+
+  "VIEW": "View",
+  "RELOAD": "Reload",
+  "FORCERELOAD": "Force Reload",
+  "TOGGLEDEVTOOLS": "Toggle DevTools",
+  "RESETZOOM": "Reset Zoom",
+  "ZOOMIN": "Zoom In",
+  "ZOOMOUT": "Zoom Out",
+  "TOGGLEFULLSCREEN": "FullScreen",
+
+  "WINDOW": "Window",
+  "MINIMIZE": "Minimize",
+  "ZOOM": "Zoom",
+  "FRONT": "Front",
+
+  "HELP": "Help",
+  "APPHELP": "Help {{name}}"
+}
