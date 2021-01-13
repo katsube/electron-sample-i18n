@@ -1,7 +1,8 @@
 # Electron Sample - i18n
 言語設定を行うサンプルです。ボタンを押すと英語と日本語を切り替えることができます。（設定は次回起動時も引き継がれます）
+
 ## 解説ページ
-* []()
+* [[Electron] 多言語対応する – i18n](https://blog.katsubemakito.net/nodejs/electron/electron-i18n)
 
 ## 準備
 Gitでリポジトリを取得します。
