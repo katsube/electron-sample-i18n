@@ -1,8 +1,19 @@
+/**
+ * 言語設定を行うサンプル
+ */
+
+//------------------------------------
+// モジュール
+//------------------------------------
 const { app, BrowserWindow, ipcMain } = require('electron')
 const menu = require('./src/menu')
 const config = require('./src/config')
 const dialog = require('./src/dialog')
 
+//------------------------------------
+// グローバル変数
+//------------------------------------
+// ウィンドウ管理用
 let mainWin;
 
 /**
@@ -24,15 +35,20 @@ function createWindow () {
 
 // 初期化が終了したらウィンドウを新規に作成する
 app.whenReady().then(()=>{
+  // 言語設定を取得する
   const locale = config.get('locale') || app.getLocale();
 
   // メニューを適用する
   menu.setTemplate(locale)
 
+  // ウィンドウを開く
   createWindow()
 })
 
 
+//------------------------------------
+// [app] イベント処理
+//------------------------------------
 // すべてのウィンドウが閉じられたときの処理
 app.on('window-all-closed', () => {
   // macOS以外はアプリを終了する
@@ -50,11 +66,16 @@ app.on('activate', () => {
   }
 })
 
+//----------------------------------------
+// IPC通信
+//----------------------------------------
+// 設定情報を取得
 ipcMain.handle('getConfig', async (event, data) => {
   return( config.get(data) )
 });
 
+// 言語設定を保存
 ipcMain.handle('setLocale', async (event, data) => {
   config.set('locale', data)
-  dialog.reboot(mainWin)
+  dialog.reboot(mainWin)      // 再起動する？
 });
