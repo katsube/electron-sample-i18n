@@ -40,9 +40,9 @@ app.whenReady().then(()=>{
   const locale = config.get('locale') || app.getLocale();
 
   // メニューを適用する
-//  menu.setTemplate(locale)
-menu.setTemplate('de')
-  // ウィンドウを開く
+  menu.setTemplate(locale)
+
+// ウィンドウを開く
   createWindow()
 })
 
