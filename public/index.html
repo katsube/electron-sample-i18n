@@ -15,7 +15,10 @@
 <form>
   <button type="button" id="btn-ja" data-lang="ja"></button>
   <button type="button" id="btn-en" data-lang="en"></button>
+  <button type="button" id="btn-fr" data-lang="fr"></button>
 </form>
+
+<p>※未対応の言語を選択すると「日本語」になります</p>
 
 <script>
   const {ipcRenderer} = require('electron');
@@ -27,6 +30,7 @@
     document.querySelector("h1").textContent = _.t('TITLE')
     document.querySelector("#btn-ja").textContent = _.t('BUTTON-JA')
     document.querySelector("#btn-en").textContent = _.t('BUTTON-EN')
+    document.querySelector("#btn-fr").textContent = _.t('BUTTON-FR')
   })()
 
   document.querySelectorAll("button").forEach( (elem) =>{

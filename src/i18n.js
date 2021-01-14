@@ -20,6 +20,9 @@ const p = require('../package.json')
  *   console.log( _.t('foo') );
  */
 module.exports = class i18n{
+  // 対応言語
+  static SUPPORT_LANG = ['ja', 'en']
+
   // デフォルト言語
   static DEFAULT_LANG = 'ja'
 
@@ -31,8 +34,8 @@ module.exports = class i18n{
    * @param {string} dir  言語ファイルがあるディレクトリ
    */
   constructor(lang=null, ns='default', dir='./locales'){
-    if( lang === null ){
-      lang = this.DEFAULT_LANG
+    if( lang === null || ! this.isSupport(lang) ){
+      lang = i18n.DEFAULT_LANG
     }
 
     this._lang = lang   // 言語
@@ -40,7 +43,10 @@ module.exports = class i18n{
     this._dir  = dir    // 言語ファイルのディレクトリ
     this._dic  = null   // 翻訳データ入れ
 
-    this.load()
+    const ret = this.load()
+    if( ! ret ){
+      throw 'Can not load language file'
+    }
   }
 
   /**
@@ -60,6 +66,16 @@ module.exports = class i18n{
     catch(e){
       return(false)
     }
+  }
+
+  /**
+   * サポートしている言語かチェック
+   *
+   * @param {string} lang
+   * @return {boolean}
+   */
+  isSupport(lang){
+    return( i18n.SUPPORT_LANG.indexOf(lang) !== -1 )
   }
 
   /**
